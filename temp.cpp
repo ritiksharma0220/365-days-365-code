@@ -1,30 +1,34 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-
+#define ll long long
+#define ss string
+ll i,j,k,t,flag;
 int main(){
-    int t;
     cin>>t;
     while (t--)
     {
-        int n,a;
-        cin>>n>>a;
-        vector<int> b(105);
-        for (int i = 1; i <=n; i++)
+        ll n,k,x;
+        map<ll, ll> m;
+        for ( i = 0; i < n; i++)
         {
-            int x;
             cin>>x;
-            b[x]++;
-        }
-        int total=0;
-        for (int i = 1; i <=n; i++)
-        {
-            if (b[i])
+            if (m.find(i%k!=m.end()))
             {
-                total+=min(a,b[i]);
+                m[i%k]=max(m[i%k],x);
+                
             }
+            else
+                {
+                    m[i%k]=x;
+                }
         }
-        cout<<total<<endl;
+            flag=0;
+            for (auto it:m)
+            {
+                ans+=it.second();
+            }
+            cout<<ans<<endl;
+        
     }
     
 }
